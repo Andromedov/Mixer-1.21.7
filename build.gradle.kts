@@ -12,7 +12,7 @@ allprojects {
     apply(plugin = "maven-publish")
 
     group = "net.somewhatcity"
-    version = "1.0.7"
+    version = "1.1.0"
 
     repositories {
         maven("https://repo.papermc.io/repository/maven-public/")
@@ -23,7 +23,7 @@ allprojects {
     }
 
     java {
-        toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+        toolchain.languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
 
