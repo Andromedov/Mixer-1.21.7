@@ -354,7 +354,11 @@ public class IMixerAudioPlayer implements MixerAudioPlayer {
 
                 @Override
                 public void loadFailed(FriendlyException e) {
-                    e.printStackTrace();
+                    if (e.getMessage().contains("403")) {
+                        Bukkit.getLogger().warning("[Mixer] Failed to load track (403 Forbidden) — likely due to hotlink protection or Dropbox blocking the request.");
+                    } else {
+                        Bukkit.getLogger().warning("[Mixer] Track load failed: " + e.getClass().getSimpleName() + " — " + e.getMessage());
+                    }
                 }
             });
         });
